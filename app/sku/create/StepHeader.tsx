@@ -28,8 +28,8 @@ export function StepHeader({ currentStep }: StepHeaderProps) {
       </div>
 
       {/* Center: Stepper */}
-      <div className="flex-1 flex items-center justify-center w-full max-w-4xl">
-        <div className="flex items-center w-full justify-between gap-2 px-4">
+      <div className="flex-1 flex items-center justify-center w-full max-w-4xl order-3 lg:order-none">
+        <div className="flex items-center w-full justify-between gap-1 md:gap-2 px-0 md:px-4">
           {steps.map((step, index) => {
             const isActive = step.id === currentStep;
             const isCompleted = step.id < currentStep;
@@ -37,27 +37,27 @@ export function StepHeader({ currentStep }: StepHeaderProps) {
             return (
               <React.Fragment key={step.id}>
                 {/* Step Item */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 md:gap-3 shrink-0">
                   <div
                     className={cn(
-                      "w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300 relative",
+                      "w-8 h-8 md:w-10 md:h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300 relative",
                       isActive
                         ? "border-[#3e54ac] bg-white ring-4 ring-blue-50"
                         : "border-gray-200 bg-white"
                     )}
                   >
                     {isActive && (
-                      <div className="w-4 h-4 bg-[#3e54ac] rounded-full" />
+                      <div className="w-3 h-3 md:w-4 md:h-4 bg-[#3e54ac] rounded-full" />
                     )}
                     {isCompleted && (
                       <div className="w-full h-full bg-[#3e54ac] rounded-full flex items-center justify-center">
-                        <Check className="w-6 h-6 text-white" />
+                        <Check className="w-4 h-4 md:w-6 md:h-6 text-white" />
                       </div>
                     )}
                   </div>
                   <span
                     className={cn(
-                      "text-sm font-bold whitespace-nowrap",
+                      "text-xs md:text-sm font-bold whitespace-nowrap hidden md:block",
                       isActive ? "text-[#3e54ac]" : "text-gray-500"
                     )}
                   >
@@ -67,7 +67,7 @@ export function StepHeader({ currentStep }: StepHeaderProps) {
 
                 {/* Connecting Line (except for last step) */}
                 {index < steps.length - 1 && (
-                  <div className="flex-1 h-0.5 bg-gray-100 min-w-[20px] mx-2" />
+                  <div className="flex-1 h-0.5 bg-gray-100 min-w-[10px] md:min-w-[20px] mx-1 md:mx-2" />
                 )}
               </React.Fragment>
             );
