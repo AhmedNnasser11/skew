@@ -1,3 +1,4 @@
+import * as React from "react";
 import { ChevronDown, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -16,86 +17,67 @@ interface StepHeaderProps {
 export function StepHeader({ currentStep }: StepHeaderProps) {
   return (
     <div
-      className="bg-white shadow-sm border-b py-4 px-6 flex flex-col md:flex-row items-center justify-between gap-4 relative z-10"
+      className="bg-white shadow-xl rounded-2xl p-5 flex flex-col lg:flex-row items-center justify-between gap-6"
       dir="rtl"
     >
       {/* Right: Title */}
-      <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
-        <h1 className="text-xl font-bold text-gray-800">انشاء SKU للمنتج</h1>
+      <div className="flex items-center gap-3">
+        <h2 className="text-xl font-bold text-[#1e293b] whitespace-nowrap">
+          انشاء SKU للمنتج
+        </h2>
       </div>
 
       {/* Center: Stepper */}
-      <div className="flex-1 w-full md:w-auto flex justify-center">
-        <div className="flex items-center w-full max-w-3xl justify-center relative">
-          {/* Progress Bar Background */}
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -z-10 -translate-y-1/2 mx-4 md:mx-10"></div>
-          {/* Active Progress Bar - Dynamic calculation based on step */}
-          <div
-            className="absolute top-1/2 right-0 h-1 bg-slate-600 -z-10 -translate-y-1/2 transition-all duration-300 mx-4 md:mx-10"
-            style={{
-              width: `${((currentStep - 1) / (steps.length - 1)) * 100}%`,
-            }}
-          ></div>
+      <div className="flex-1 flex items-center justify-center w-full max-w-4xl">
+        <div className="flex items-center w-full justify-between gap-2 px-4">
+          {steps.map((step, index) => {
+            const isActive = step.id === currentStep;
+            const isCompleted = step.id < currentStep;
 
-          <div className="flex justify-between w-full px-2">
-            {steps.map((step) => {
-              const isActive = step.id === currentStep;
-              const isCompleted = step.id < currentStep;
-
-              return (
-                <div
-                  key={step.id}
-                  className="flex flex-col items-center gap-2 bg-white px-1 md:px-2"
-                >
+            return (
+              <React.Fragment key={step.id}>
+                {/* Step Item */}
+                <div className="flex items-center gap-3">
                   <div
                     className={cn(
-                      "w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors shadow-sm",
+                      "w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300 relative",
                       isActive
-                        ? "border-slate-800 bg-white"
-                        : isCompleted
-                        ? "border-slate-800 bg-slate-800 text-white"
-                        : "border-gray-200 text-gray-400"
+                        ? "border-[#3e54ac] bg-white ring-4 ring-blue-50"
+                        : "border-gray-200 bg-white"
                     )}
                   >
-                    {isCompleted ? (
-                      <Check className="w-4 h-4" />
-                    ) : (
-                      <span
-                        className={cn(
-                          "text-xs font-bold",
-                          isActive ? "text-slate-800" : ""
-                        )}
-                      ></span>
-                    )}
-                    {/* Inner circle for active */}
                     {isActive && (
-                      <div className="w-3 h-3 bg-slate-800 rounded-full" />
+                      <div className="w-4 h-4 bg-[#3e54ac] rounded-full" />
+                    )}
+                    {isCompleted && (
+                      <div className="w-full h-full bg-[#3e54ac] rounded-full flex items-center justify-center">
+                        <Check className="w-6 h-6 text-white" />
+                      </div>
                     )}
                   </div>
                   <span
                     className={cn(
-                      "text-xs font-medium whitespace-nowrap",
-                      isActive || isCompleted
-                        ? "text-slate-800"
-                        : "text-gray-400"
+                      "text-sm font-bold whitespace-nowrap",
+                      isActive ? "text-[#3e54ac]" : "text-gray-500"
                     )}
                   >
                     {step.label}
                   </span>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Connecting Line (except for last step) */}
+                {index < steps.length - 1 && (
+                  <div className="flex-1 h-0.5 bg-gray-100 min-w-[20px] mx-2" />
+                )}
+              </React.Fragment>
+            );
+          })}
         </div>
       </div>
 
-      {/* Left: Actions */}
-      <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
-        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-md text-sm text-gray-600 cursor-pointer">
-          <span>المتجر الاساسي</span>
-          <ChevronDown className="w-4 h-4" />
-        </div>
-        <Button className="bg-[#3e54ac] hover:bg-[#334692] text-white px-6">
+      {/* Left: Action Button */}
+      <div className="w-full lg:w-auto">
+        <Button className="w-full lg:w-auto bg-[#3e54ac] hover:bg-[#334692] text-white px-10 py-6 rounded-xl font-bold shadow-lg shadow-blue-500/20 text-lg">
           حفظ التغييرات
         </Button>
       </div>

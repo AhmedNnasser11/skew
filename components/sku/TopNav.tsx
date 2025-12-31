@@ -1,7 +1,6 @@
 import { Search, Bell, Mail, Headset, ChevronDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback } from "../ui/avatar";
 
 export function TopNav() {
   return (
@@ -10,16 +9,13 @@ export function TopNav() {
       dir="rtl"
     >
       {/* Right side: Logo & Menu */}
-      <div className="flex items-center gap-6">
-        <div className="text-2xl font-bold flex items-center gap-2">
-          {/* Logo Placeholder */}
-          <span className="text-3xl font-black italic">لنكي</span>
-        </div>
-        <Button variant="ghost" className="text-white hover:bg-white/10">
+      <div className="flex items-center gap-4">
+        {/* Hamburger Menu (Far Right) */}
+        <Button variant="ghost" className="text-white hover:bg-white/10 p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="28"
+            height="28"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -32,66 +28,80 @@ export function TopNav() {
             <line x1="3" y1="18" x2="21" y2="18" />
           </svg>
         </Button>
+        {/* Logo */}
+        <div className="text-2xl font-bold flex items-center gap-2">
+          <div className="bg-white/10 p-1.5 rounded-lg border border-white/20">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="rotate-45 text-white"
+            >
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+          </div>
+          <span className="text-2xl font-black italic tracking-tighter">
+            لنكي
+          </span>
+        </div>
       </div>
 
       {/* Center: Search */}
-      <div className="flex-1 max-w-xl mx-auto relative">
-        <Input
-          type="text"
-          placeholder="ابحث..."
-          className="bg-[#2a3c85] border-none text-white placeholder:text-gray-300 rounded-md pr-10 focus-visible:ring-0 focus-visible:bg-[#233375] h-10"
-        />
-        <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
+      <div className="flex-1 max-w-xl relative mr-8">
+        <div className="relative">
+          <Input
+            type="text"
+            placeholder="ابحث"
+            className="bg-[#2a3c85] border-[#445bb7] text-white placeholder:text-gray-400 rounded-md pr-10 focus-visible:ring-0 focus-visible:bg-[#233375] h-10 text-right w-full"
+          />
+          <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+        </div>
       </div>
 
       {/* Left side: Profile & Actions */}
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-3">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/10 rounded-full"
-          >
-            <span className="font-bold text-sm">AA</span>
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/10 rounded-full"
-          >
-            <Mail className="w-5 h-5" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/10 rounded-full"
-          >
-            <Bell className="w-5 h-5" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/10 rounded-full"
-          >
-            <Headset className="w-5 h-5" />
-          </Button>
-          <div className="flex items-center gap-1 text-sm">
-            <span>العربية</span>
-            <ChevronDown className="w-3 h-3" />
+      <div className="flex items-center gap-2 pr-4">
+        <div className="flex items-center gap-1.5 text-xs text-gray-300 ml-4">
+          <div className="w-5 h-5 bg-lime-500 rounded-full flex items-center justify-center text-[10px] text-black font-bold border border-lime-600/20">
+            ع
           </div>
+          <span>العربية</span>
+          <ChevronDown className="w-3 h-3 text-gray-400" />
         </div>
-
-        <div className="flex items-center gap-3 text-right">
-          <div className="hidden md:block">
-            <p className="text-sm font-bold">Mohamed Ahmed</p>
-            <p className="text-xs text-gray-300">mo_nayef123@gmail.com</p>
-          </div>
-          <Avatar className="h-10 w-10 border-2 border-white/20">
-            <AvatarFallback className="bg-blue-600 text-white">
-              MA
-            </AvatarFallback>
-          </Avatar>
-        </div>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-white hover:bg-white/10 rounded-full w-9 h-9"
+        >
+          <Headset className="w-5 h-5 opacity-80" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-white hover:bg-white/10 rounded-full w-9 h-9"
+        >
+          <Bell className="w-5 h-5 opacity-80" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-white hover:bg-white/10 rounded-full w-9 h-9"
+        >
+          <Mail className="w-5 h-5 opacity-80" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-white hover:bg-white/10 rounded-full border border-white/20 w-9 h-9 ml-2"
+        >
+          <span className="font-bold text-xs">AA</span>
+        </Button>
       </div>
     </header>
   );
