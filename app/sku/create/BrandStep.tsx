@@ -1,8 +1,8 @@
 import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { RTLInput } from "@/components/shared/CustomInput";
+import { BrandCheckbox } from "@/components/shared/CustomCheckbox";
 
 export function BrandStep() {
   return (
@@ -18,13 +18,7 @@ export function BrandStep() {
       <div className="mt-12 space-y-4">
         {/* Brand Search */}
         <div className="space-y-2">
-          <div className="relative">
-            <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <Input
-              className="py-6 pr-10 text-right bg-white border-gray-200 focus-visible:ring-[#3e54ac]"
-              placeholder="علامة تجارية معروفة"
-            />
-          </div>
+          <RTLInput icon={Search} placeholder="علامة تجارية معروفة" />
         </div>
 
         {/* No Brand Checkbox */}
@@ -35,10 +29,7 @@ export function BrandStep() {
           >
             هذا المنتج ليس له علامة تجارية
           </Label>
-          <Checkbox
-            id="no-brand"
-            className="w-5 h-5 border-gray-300 data-[state=checked]:bg-[#3e54ac]"
-          />
+          <BrandCheckbox id="no-brand" />
         </div>
       </div>
     </Card>

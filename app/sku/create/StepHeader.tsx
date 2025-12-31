@@ -1,7 +1,7 @@
 import * as React from "react";
-import { ChevronDown, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BrandButton } from "@/components/shared/CustomButton";
 
 const steps = [
   { id: 1, label: "القسم" },
@@ -77,9 +77,7 @@ export function StepHeader({ currentStep }: StepHeaderProps) {
 
       {/* Left: Action Button */}
       <div className="w-full lg:w-auto">
-        <Button className="w-full lg:w-auto bg-[#3e54ac] hover:bg-[#334692] text-white px-10 py-6 rounded-xl font-bold shadow-lg shadow-blue-500/20 text-lg">
-          حفظ التغييرات
-        </Button>
+        <BrandButton className="w-full lg:w-auto">حفظ التغييرات</BrandButton>
       </div>
     </div>
   );

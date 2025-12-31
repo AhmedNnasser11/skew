@@ -8,7 +8,7 @@ import {
   Link,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { BrandButton } from "@/components/shared/CustomButton";
 
 export function TopNav() {
   return (
@@ -19,9 +19,12 @@ export function TopNav() {
       {/* Right side: Logo & Menu */}
       <div className="flex items-center gap-4">
         {/* Hamburger Menu (Far Right) */}
-        <Button variant="ghost" className="text-white hover:bg-white/10 p-2">
+        <BrandButton
+          variant="ghost"
+          className="text-white hover:bg-white/10 p-2 shadow-none border-none"
+        >
           <Menu className="w-7 h-7" />
-        </Button>
+        </BrandButton>
         {/* Logo */}
         <div className="text-2xl font-bold flex items-center gap-2">
           <div className="bg-white/10 p-1.5 rounded-lg border border-white/20">
@@ -54,34 +57,34 @@ export function TopNav() {
           <span>العربية</span>
           <ChevronDown className="w-3 h-3 text-gray-400" />
         </div>
-        <Button
+        <BrandButton
           variant="ghost"
           size="icon"
-          className="text-white hover:bg-white/10 rounded-full w-9 h-9"
+          className="text-white hover:bg-white/10 rounded-full w-9 h-9 shadow-none border-none"
         >
           <Headset className="w-5 h-5 opacity-80" />
-        </Button>
-        <Button
+        </BrandButton>
+        <BrandButton
           variant="ghost"
           size="icon"
-          className="text-white hover:bg-white/10 rounded-full w-9 h-9"
+          className="text-white hover:bg-white/10 rounded-full w-9 h-9 shadow-none border-none"
         >
           <Bell className="w-5 h-5 opacity-80" />
-        </Button>
-        <Button
+        </BrandButton>
+        <BrandButton
           variant="ghost"
           size="icon"
-          className="text-white hover:bg-white/10 rounded-full w-9 h-9"
+          className="text-white hover:bg-white/10 rounded-full w-9 h-9 shadow-none border-none"
         >
           <Mail className="w-5 h-5 opacity-80" />
-        </Button>
-        <Button
+        </BrandButton>
+        <BrandButton
           variant="ghost"
           size="icon"
-          className="text-white hover:bg-white/10 rounded-full border border-white/20 w-9 h-9 ml-2"
+          className="text-white hover:bg-white/10 rounded-full border border-white/20 w-9 h-9 ml-2 shadow-none"
         >
           <span className="font-bold text-xs">AA</span>
-        </Button>
+        </BrandButton>
       </div>
     </header>
   );

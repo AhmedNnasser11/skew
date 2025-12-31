@@ -7,7 +7,7 @@ import { DateRange } from "react-day-picker";
 import { ar } from "date-fns/locale";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { BrandButton } from "@/components/shared/CustomButton";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { RTLInput } from "@/components/shared/CustomInput";
 
 export function PricingForm() {
   const [date, setDate] = useState<DateRange | undefined>();
@@ -33,13 +34,13 @@ export function PricingForm() {
             السعر الاساسي
           </Label>
           <div className="relative">
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 p-1 bg-gray-100 rounded text-xs font-bold text-gray-500">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 p-1 bg-gray-100 rounded text-xs font-bold text-gray-500 z-10">
               ر.س
             </div>
-            <Input
+            <RTLInput
               type="number"
               placeholder="ادخل السعر هنا"
-              className="text-right pl-12 py-6 bg-white border-gray-200 focus-visible:ring-[#3e54ac]"
+              className="pl-12"
             />
           </div>
           <p className="text-xs text-gray-400 text-right">
@@ -58,13 +59,13 @@ export function PricingForm() {
             </Label>
           </div>
           <div className="relative">
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 p-1 bg-gray-100 rounded text-xs font-bold text-gray-500">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 p-1 bg-gray-100 rounded text-xs font-bold text-gray-500 z-10">
               ر.س
             </div>
-            <Input
+            <RTLInput
               type="number"
               placeholder="ادخل سعر العرض هنا"
-              className="text-right pl-12 py-6 bg-white border-gray-200 focus-visible:ring-[#3e54ac]"
+              className="pl-12"
             />
           </div>
           <p className="text-xs text-gray-400 text-right">
@@ -73,6 +74,7 @@ export function PricingForm() {
         </div>
 
         {/* Offer Period (Date Range) */}
+        {/* ... (rest unchanged) */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
             <Label className="font-bold text-gray-700">
@@ -84,11 +86,11 @@ export function PricingForm() {
           </div>
           <Popover>
             <PopoverTrigger asChild>
-              <Button
+              <BrandButton
                 id="date"
                 variant={"outline"}
                 className={cn(
-                  "w-full justify-start text-right font-normal py-6 border-gray-200 hover:bg-white bg-white text-gray-500",
+                  "w-full justify-start text-right font-normal py-6 border-gray-200 hover:bg-white bg-white text-gray-500 shadow-none",
                   !date && "text-muted-foreground"
                 )}
               >
@@ -105,7 +107,7 @@ export function PricingForm() {
                 ) : (
                   <span>من تاريخ بدء العرض الي تاريخ انتهاء العرض</span>
                 )}
-              </Button>
+              </BrandButton>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
               <Calendar

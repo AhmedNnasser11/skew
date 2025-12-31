@@ -1,7 +1,8 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { PricingForm } from "./PricingForm";
 import { Info, Tag, Box, FileText } from "lucide-react";
+import { BrandTabsTrigger } from "@/components/shared/CustomTabs";
 
 export function ProductDetailsStep() {
   return (
@@ -21,35 +22,24 @@ export function ProductDetailsStep() {
       >
         {/* Sidebar Tabs List */}
         <TabsList className="bg-white p-4 pt-20 w-full md:w-64 flex-col items-stretch justify-start h-auto border-l rounded-none gap-2 space-y-1">
-          <TabsTrigger
-            value="basic"
-            className="justify-start gap-3 px-4 py-3 data-[state=active]:bg-[#f0f4ff] data-[state=active]:text-[#3e54ac] data-[state=active]:shadow-none rounded-lg text-gray-500 hover:bg-gray-50 transition-colors"
-          >
+          <BrandTabsTrigger value="basic">
             <Info className="w-4 h-4" />
             معلومات اساسية
-          </TabsTrigger>
-          <TabsTrigger
-            value="pricing"
-            className="justify-start gap-3 px-4 py-3 data-[state=active]:bg-[#f0f4ff] data-[state=active]:text-[#3e54ac] data-[state=active]:shadow-none rounded-lg text-gray-500 hover:bg-gray-50 transition-colors"
-          >
+          </BrandTabsTrigger>
+          <BrandTabsTrigger value="pricing">
             <Tag className="w-4 h-4" />
             تسعير المنتج
-          </TabsTrigger>
-          <TabsTrigger
-            value="inventory"
-            className="justify-start gap-3 px-4 py-3 data-[state=active]:bg-[#f0f4ff] data-[state=active]:text-[#3e54ac] data-[state=active]:shadow-none rounded-lg text-gray-500 hover:bg-gray-50 transition-colors"
-          >
+          </BrandTabsTrigger>
+          <BrandTabsTrigger value="inventory">
             <Box className="w-4 h-4" />
             ادارة المخزون
-          </TabsTrigger>
-          <TabsTrigger
-            value="compliance"
-            className="justify-start gap-3 px-4 py-3 data-[state=active]:bg-[#f0f4ff] data-[state=active]:text-[#3e54ac] data-[state=active]:shadow-none rounded-lg text-gray-500 hover:bg-gray-50 transition-colors"
-          >
+          </BrandTabsTrigger>
+          <BrandTabsTrigger value="compliance">
             <FileText className="w-4 h-4" />
             الامتثال و التوثيق
-          </TabsTrigger>
+          </BrandTabsTrigger>
         </TabsList>
+        {/* ... rest unchanged */}
 
         {/* Content Area */}
         <div className="flex-1 bg-white p-6 pt-20 relative">

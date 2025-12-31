@@ -1,7 +1,6 @@
 import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { RTLInput } from "@/components/shared/CustomInput";
 
 export function CategoryStep() {
   return (
@@ -17,24 +16,12 @@ export function CategoryStep() {
       <div className="mt-12 space-y-6">
         {/* Category Search */}
         <div className="space-y-2">
-          <div className="relative">
-            <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <Input
-              className="py-6 pr-10 text-right bg-white border-gray-200 focus-visible:ring-[#3e54ac]"
-              placeholder="اجهزة المعامل"
-            />
-          </div>
+          <RTLInput icon={Search} placeholder="اجهزة المعامل" />
         </div>
 
         {/* URL Input */}
         <div className="space-y-2">
-          <div className="relative">
-            <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <Input
-              className="py-6 pr-10 text-right bg-white border-gray-200 focus-visible:ring-[#3e54ac]"
-              placeholder="انسخ و الصق رابط لنكي هنا"
-            />
-          </div>
+          <RTLInput icon={Search} placeholder="انسخ و الصق رابط لنكي هنا" />
           <p className="text-xs text-gray-500 text-right px-1">
             الصق عنوان PDP لـ URL طهرا (من خلال لصق عنوان URL لرمز SKU الخاص
             بلنكي هنا، ستختار نفس فئة هذا المنتج)
