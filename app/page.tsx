@@ -1,6 +1,63 @@
-import Image from "next/image";
-import CreateSkuPage from "./sku/create/page";
+"use client";
+import { ChevronDown } from "lucide-react";
+import { TopNav } from "./(home_components)/TopNav";
+import { StepHeader } from "./(home_components)/StepHeader";
+import { CategoryStep } from "./(home_components)/CategoryStep";
+import { BrandStep } from "./(home_components)/BrandStep";
+import { IdentityStep } from "./(home_components)/IdentityStep";
+import { ProductDetailsStep } from "./(home_components)/ProductDetailsStep";
 
-export default function Home() {
-  return <CreateSkuPage />;
+export default function CreateSkuPage() {
+  return (
+    <div className="min-h-screen bg-white font-sans" dir="rtl">
+      <TopNav />
+
+      <div className="bg-[#f0f5ff] pt-6 md:pt-10 pb-16 md:pb-24 relative overflow-hidden bg-watermark">
+        <div className="container relative z-10">
+          <div className="flex flex-col md:flex-row-reverse items-start md:items-center justify-between gap-6 mb-8 md:mb-12">
+            <div className="flex items-center gap-3 px-5 py-3 bg-white border border-gray-100 rounded-xl text-sm font-bold text-[#3e54ac] cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+              <ChevronDown className="w-4 h-4" />
+              <span>المتجر الاساسي</span>
+            </div>
+
+            <div className="text-right flex items-center gap-6">
+              <div>
+                <div className="flex items-baseline gap-2 justify-end mb-1">
+                  <span className="text-xl md:text-2xl font-normal text-[#1e293b]">
+                    اهلا
+                  </span>
+                  <h1 className="text-xl md:text-2xl font-black text-[#1e293b]">
+                    Mohamed Ahmed
+                  </h1>
+                </div>
+                <p className="text-xs md:text-sm font-medium text-gray-400">
+                  mo_nayef123@gmail.com
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <StepHeader currentStep={1} />
+        </div>
+      </div>
+
+      <main className="container relative z-20 space-y-6 md:space-y-8 p-4 md:p-0 -mt-10 md:-mt-12">
+        <section>
+          <CategoryStep />
+        </section>
+
+        <section>
+          <BrandStep />
+        </section>
+
+        <section>
+          <IdentityStep />
+        </section>
+
+        <section>
+          <ProductDetailsStep />
+        </section>
+      </main>
+    </div>
+  );
 }
