@@ -28,7 +28,6 @@ export function PricingForm() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Basic Price */}
         <div className="space-y-2">
           <Label className="text-right block font-bold text-gray-700">
             السعر الاساسي
@@ -48,7 +47,6 @@ export function PricingForm() {
           </p>
         </div>
 
-        {/* Discount Price */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
             <Label className="font-bold text-gray-700">
@@ -73,8 +71,6 @@ export function PricingForm() {
           </p>
         </div>
 
-        {/* Offer Period (Date Range) */}
-        {/* ... (rest unchanged) */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
             <Label className="font-bold text-gray-700">

@@ -6,7 +6,6 @@ import { BrandButton } from "@/components/shared/CustomButton";
 export function IdentityStep() {
   return (
     <Card className="p-4 md:p-6 mb-6 shadow-sm border-gray-100 rounded-xl relative overflow-hidden">
-      {/* ... (rest unchanged) */}
       <div className="absolute top-6 right-6 flex items-center gap-3">
         <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#3e54ac] text-white font-bold text-sm">
           3

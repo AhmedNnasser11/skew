@@ -20,14 +20,12 @@ export function StepHeader({ currentStep }: StepHeaderProps) {
       className="bg-white shadow-xl rounded-2xl p-5 flex flex-col lg:flex-row items-center justify-between gap-6"
       dir="rtl"
     >
-      {/* Right: Title */}
       <div className="flex items-center gap-3">
         <h2 className="text-xl font-bold text-[#1e293b] whitespace-nowrap">
           انشاء SKU للمنتج
         </h2>
       </div>
 
-      {/* Center: Stepper */}
       <div className="flex-1 flex items-center justify-center w-full max-w-4xl order-3 lg:order-none">
         <div className="flex items-center w-full justify-between gap-1 md:gap-2 px-0 md:px-4">
           {steps.map((step, index) => {
@@ -36,7 +34,6 @@ export function StepHeader({ currentStep }: StepHeaderProps) {
 
             return (
               <React.Fragment key={step.id}>
-                {/* Step Item */}
                 <div className="flex items-center gap-2 md:gap-3 shrink-0">
                   <div
                     className={cn(
@@ -65,7 +62,6 @@ export function StepHeader({ currentStep }: StepHeaderProps) {
                   </span>
                 </div>
 
-                {/* Connecting Line (except for last step) */}
                 {index < steps.length - 1 && (
                   <div className="flex-1 h-0.5 bg-gray-100 min-w-[10px] md:min-w-[20px] mx-1 md:mx-2" />
                 )}
@@ -75,7 +71,6 @@ export function StepHeader({ currentStep }: StepHeaderProps) {
         </div>
       </div>
 
-      {/* Left: Action Button */}
       <div className="w-full lg:w-auto">
         <BrandButton className="w-full lg:w-auto">حفظ التغييرات</BrandButton>
       </div>
