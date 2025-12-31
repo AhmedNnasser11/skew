@@ -1,12 +1,11 @@
 "use client";
 import { ChevronDown } from "lucide-react";
-
-import { TopNav } from "@/components/sku/TopNav";
-import { StepHeader } from "@/components/sku/StepHeader";
-import { CategoryStep } from "@/components/sku/CategoryStep";
-import { BrandStep } from "@/components/sku/BrandStep";
-import { IdentityStep } from "@/components/sku/IdentityStep";
-import { ProductDetailsStep } from "@/components/sku/ProductDetailsStep";
+import { TopNav } from "./TopNav";
+import { StepHeader } from "./StepHeader";
+import { CategoryStep } from "./CategoryStep";
+import { BrandStep } from "./BrandStep";
+import { IdentityStep } from "./IdentityStep";
+import { ProductDetailsStep } from "./ProductDetailsStep";
 
 export default function CreateSkuPage() {
   return (
@@ -15,9 +14,9 @@ export default function CreateSkuPage() {
 
       {/* Light Blue background section with watermark */}
       <div className="bg-[#f0f5ff] pt-10 pb-24 relative overflow-hidden bg-watermark">
-        <div className="container mx-auto max-w-7xl px-4 md:px-6 relative z-10">
+        <div className="container relative z-10">
           {/* Welcome & Store Selector Header */}
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12">
+          <div className="flex flex-col md:flex-row-reverse items-start md:items-center justify-between gap-6 mb-12">
             {/* Left: Store Selector */}
             <div className="flex items-center gap-3 px-5 py-3 bg-white border border-gray-100 rounded-xl text-sm font-bold text-[#3e54ac] cursor-pointer shadow-sm hover:shadow-md transition-shadow">
               <ChevronDown className="w-4 h-4" />
@@ -46,7 +45,7 @@ export default function CreateSkuPage() {
         </div>
       </div>
 
-      <main className="container mx-auto max-w-7xl p-4 md:p-6 -mt-12 relative z-20 space-y-6 md:space-y-8">
+      <main className="container relative z-20 space-y-6 md:space-y-8">
         {/* Render all sections sequentially */}
 
         <section>

@@ -1,4 +1,12 @@
-import { Search, Bell, Mail, Headset, ChevronDown } from "lucide-react";
+import {
+  Search,
+  Bell,
+  Mail,
+  Headset,
+  ChevronDown,
+  Menu,
+  Link,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -12,40 +20,12 @@ export function TopNav() {
       <div className="flex items-center gap-4">
         {/* Hamburger Menu (Far Right) */}
         <Button variant="ghost" className="text-white hover:bg-white/10 p-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
+          <Menu className="w-7 h-7" />
         </Button>
         {/* Logo */}
         <div className="text-2xl font-bold flex items-center gap-2">
           <div className="bg-white/10 p-1.5 rounded-lg border border-white/20">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="rotate-45 text-white"
-            >
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-            </svg>
+            <Link className="w-5 h-5 rotate-45 text-white" strokeWidth={3} />
           </div>
           <span className="text-2xl font-black italic tracking-tighter">
             لنكي
